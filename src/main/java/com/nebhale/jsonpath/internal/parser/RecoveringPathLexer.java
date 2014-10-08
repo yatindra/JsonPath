@@ -146,7 +146,7 @@ final class RecoveringPathLexer implements PathLexer {
     }
 
     private void dotChild(LexerContext context, PathCharacter c) {
-        if (c.isType(CharacterType.SIMPLE_NAME_CHARACTER)) {
+        if (c.isType(CharacterType.SIMPLE_NAME_CHARACTER) || c.isType(CharacterType.HYPHEN) || c.isType(CharacterType.SPACE)) {
             context.value.add(c);
             context.scanner.consume();
         } else if (c.isType(CharacterType.WILDCARD)) {
